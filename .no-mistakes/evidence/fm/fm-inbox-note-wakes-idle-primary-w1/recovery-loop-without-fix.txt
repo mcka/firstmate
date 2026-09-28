@@ -1,0 +1,5 @@
+ok - a resurfacing handling successor stays alive and supervises instead of going blind
+ok - unacknowledged recovery is announced at most once per generation and the successor stays alive
+wait_for_exit: owned pid 16355 exceeded 50 polls; sending TERM
+16355 39940 S    bash /var/folders/cr/qlj1ffw11bl66tqbrv0m0kb40000gn/T/tmp.6g7azshIjb/bin/fm-watch.sh
+not ok - a handling successor kept blocking after an inbox note was queued: 

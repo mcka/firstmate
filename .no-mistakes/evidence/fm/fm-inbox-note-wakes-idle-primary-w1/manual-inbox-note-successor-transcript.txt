@@ -1,0 +1,13 @@
+$ fm-inbox.sh note 'first note'
+$ fm-watch.sh   (plain watcher, primary between turns)
+check: rearm-resurface
+  .watch-queue-handed = 1
+$ FM_WATCH_HANDLING_SUCCESSOR=1 fm-watch.sh &   (successor started by Stop hook)
+  after 4s: successor still blocking (already-handed note not re-announced)
+$ fm-inbox.sh note 'captain: please check PR 42'
+  successor exited rc=0 after 0s (FM_POLL=1) with:
+    check: undelivered queued wake: inbox:1790577289-avtEkb
+  .watch-queue-handed = 2  queue rows still queued: 2
+$ FM_WATCH_HANDLING_SUCCESSOR=1 fm-watch.sh &   (next successor, same rows still queued)
+  after 5s: still blocking, no repeat wake for the same row sequence
+  output: ''

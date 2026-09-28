@@ -1,0 +1,13 @@
+[13:44:39] start handling successor watcher (primary idle between turns)
+[13:44:42] watcher pid 18279 is blocking (no rows queued)
+[13:44:42] captain writes: fm-inbox.sh note 'please check the release branch'
+queued 1790592282-ZAUCVO
+  please check the release branch
+  firstmate will pick this up at its next check.
+[13:44:43] watcher exited after ~1s with stdout:
+    check: undelivered queued wake: inbox:1790592282-ZAUCVO
+durable queue (unchanged, not drained by the watcher):
+    1790592282	1	check	inbox:1790592282-ZAUCVO	check: captain inbox note 1790592282-ZAUCVO - please check the release branch
+state/.watch-queue-handed = 1  state/.wake-queue.seq = 1
+[13:44:43] start the next successor with the same row still queued (unacknowledged)
+[13:44:49] next successor still blocking after 6 polls: no repeat wake for the same row

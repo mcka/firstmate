@@ -1,0 +1,20 @@
+
+$ fm-watch.sh  (FM_WATCH_HANDLING_SUCCESSOR=1, empty queue) -- handling successor starts and blocks
+[watcher pid 39625 still blocking after 2 polls; no output: '']
+
+$ fm-inbox.sh note 'captain: please look at PR 42'
+queued 1790709348-L1Gpja
+  captain: please look at PR 42
+  firstmate will pick this up at its next check.
+[queue rows now:]
+  seq|kind|key: 1	check	inbox:1790709348-L1Gpja
+[watcher exited after ~1s (FM_POLL=1)] watcher stdout:
+  > check: undelivered queued wake: inbox:1790709348-L1Gpja
+[.watch-queue-handed = 1, .wake-queue.seq = 1]
+
+$ fm-watch.sh again (next handling successor, note still queued / unacked)
+[pid 42943 still blocking after 2 polls -- same row does NOT cause a second exit; stdout: '']
+
+$ fm-wake-drain.sh  (main drains the queue as usual)
+  1790709348	1	check	inbox:1790709348-L1Gpja	check: captain inbox note 1790709348-L1Gpja - captain: please look at PR 42
+  WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 41495.1790709348.daCUVv

@@ -1,0 +1,5 @@
+# Base commit 1f2c954 (pre-fix bin/) + new T3 test only
+wait_for_exit: owned pid 88799 exceeded 50 polls; sending TERM
+88799 87128 S    bash /tmp/fm-base.cLS8rU/bin/fm-watch.sh
+not ok - a handling successor kept blocking after an inbox note was queued: 
+EXIT 1

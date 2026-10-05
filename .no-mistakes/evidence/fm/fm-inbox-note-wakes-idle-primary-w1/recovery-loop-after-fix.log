@@ -4,3 +4,4 @@ ok - a handling successor surfaces a foreign queue append once, tied to its row 
 ok - the away-mode watcher leaves a foreign queue append to the daemon
 ok - a note queued just before a signal close reaches main once through the next successor, without the signal row
 ok - a note main's drain already claimed is not surfaced again before acknowledgement
+ok - a torn queue counter read never lowers the handover record

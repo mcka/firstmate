@@ -1,0 +1,20 @@
+### 1. start a handling-successor watcher (FM_WATCH_HANDLING_SUCCESSOR=1, FM_POLL=1) on an empty home
+watcher pid 75795 still blocking after 3s (expected: nothing to report)
+
+### 2. captain runs: bin/fm-inbox.sh note 'please look at the release notes'
+queued 1791199376-teGNw1
+  please look at the release notes
+  firstmate will pick this up at its next check.
+queue rows now:
+  1	check	inbox:1791199376-teGNw1
+watcher exited after 1s with wake line:
+  > check: undelivered queued wake: inbox:1791199376-teGNw1
+state/.watch-queue-handed = 1   state/.wake-queue.seq = 1
+
+### 3. restart a handling successor with the same note still queued (unacknowledged)
+watcher pid 80323 still blocking after 4s: the same row did NOT cause a second exit
+durable queue unchanged (drain/ack untouched):
+  1	check	inbox:1791199376-teGNw1
+
+### 4. away mode (state/.afk present): a new note is left to the daemon
+away-mode watcher still blocking 4s after the note: left to daemon
